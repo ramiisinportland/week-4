@@ -1,19 +1,23 @@
+Discribe: OrderPizza
 Test: "It should return toppings of choice" 
 Code: userInput(toppings) 
 Expected Output: toppings
 
-Test: "It should return the size of pizza" 
-Code: userInput(size of choice) 
-Expected Output: the size of the pizza
+
+Discribe : addPizza
+Test: " should add a pizza to the order object" 
+Code: const pizza= new Pizza(top, size) Setting up the pizza object
+      const order = new Order() <---Setting up the order object
+      addPizza(pizza) <---Running the function we're testing
+      order.pizzas <--- Calling on the location of our added pizza
+Expected Output: pizza
+
+Discribe : findCost
+Test: "It should add the to the pizza opject" 
+Code: Pizza.prototype.findCost = function()
+Expected Output: price
 
 
-Test: "It should return size with topping with price calculation" 
-Code: userInput(size and topping of choice) 
-Expected Output: the size of pizza and price calculated
-
-Test: "It should increment the price for the pizza by 2 dollars from small to large" 
-Code: userInput(The topping, the size of choice ) 
-Expected Output: size of pizza and price caculated
 
 
 

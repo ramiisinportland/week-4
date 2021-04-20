@@ -29,11 +29,11 @@ function Pizza (topping, size) {
 }
 
 Pizza.prototype.findCost = function() { // call it some
-  if (this.size === "small" && "1" || "2" || "3") {
+  if (this.size === "small") {
     this.price += `Your Total cost: $2`;
-  } else if (this.size === "medium" && "1" || "2" || "3") {
+  } else if (this.size === "medium") {
     this.price += `Your Total cost: $4`;
-  } else if (this.size === "large" && "1" || "2" || "3") {
+  } else if (this.size === "large" ) {
   this.price += `Your Total cost: $6`;
   } 
   return this.price;
@@ -65,7 +65,7 @@ function displayPizzaDetails(orderPizzaToDisplay) {
   let htmlForPizzaInfo = "";
   Object.keys(orderPizzaToDisplay.pizzas).forEach(function(key) {
     const pizza = orderPizzaToDisplay.findPizza(key);
-  htmlForPizzaInfo += "<li id" + pizza.id + ">" + "Your topping: " + pizza.topping + 
+  htmlForPizzaInfo += "<li id=" + pizza.id + ">" + "Your topping: " + pizza.topping + 
   "<br>" +" The size: " + 
    pizza.size + " " 
   + "<br>" + pizza.price + "</li>";
