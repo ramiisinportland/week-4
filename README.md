@@ -2,14 +2,14 @@ Test: "It should return toppings of choice"
 Code: userInput(toppings) 
 Expected Output: toppings
 
-Test: "It should return size of pizza" 
+Test: "It should return the size of pizza" 
 Code: userInput(size of choice) 
-Expected Output: size of pizza
+Expected Output: the size of the pizza
 
 
 Test: "It should return size with topping with price calculation" 
 Code: userInput(size and topping of choice) 
-Expected Output: size of pizza and price caculated
+Expected Output: the size of pizza and price calculated
 
 Test: "It should increment the price for the pizza by 2 dollars from small to large" 
 Code: userInput(The topping, the size of choice ) 

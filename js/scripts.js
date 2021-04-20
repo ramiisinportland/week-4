@@ -1,6 +1,4 @@
 // Business logic for OrderPizza
-"use strict"
-
 function OrderPizza() {
   this.pizzas = {};
   this.currentId = 0;
@@ -27,34 +25,31 @@ OrderPizza.prototype.findPizza = function(id) {
 function Pizza (topping, size) {
   this.topping = topping;
   this.size = size;
-  this.price = 0;
+  this.price = "";
 }
-// This is a price function 
+
 Pizza.prototype.findCost = function() { // call it some
-  if (this.size === "small") {
+  if (this.size === "small" && "1" || "2" || "3") {
     this.price += `Your Total cost: $2`;
-  } else if (this.size === "medium") {
+  } else if (this.size === "medium" && "1" || "2" || "3") {
     this.price += `Your Total cost: $4`;
-  } else if (this.size === "large") {
+  } else if (this.size === "large" && "1" || "2" || "3") {
   this.price += `Your Total cost: $6`;
   } 
-  console.log(this.price);
   return this.price;
 }
 
-// UI Logic 
-function showPizza(pizzaId) {
+function showPizza(pizzaId, order) {
   const pizza = pizza.findPizza(pizzaId);
   $("#show-pizza").show();
   $(".toppings").html(pizza.topping);s
   $(".size").html(pizza.size);
   $(".price").html(pizza.price);// Price
-  
 }
 
-function attachPizzaListener() {
+function attachPizzaListener(order) {
   $("ul#pizza").on("click", "li", function() {
-   showPizza(this.id);
+  showPizza(this.id, order);
   });
 
 
@@ -91,7 +86,7 @@ $(document).ready(function() {
     let newPizza = new Pizza(coco, toto, cost);//New
     orderPizza.addPizza(newPizza);
     let newPrice = newPizza.findCost();
-    attachPizzaListener();
-   displayPizzaDetails(orderPizza);
+    attachPizzaListener(orderPizza);
+    displayPizzaDetails(orderPizza);
   })
 })
