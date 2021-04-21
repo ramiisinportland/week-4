@@ -25,40 +25,48 @@ OrderPizza.prototype.findPizza = function(id) {
 function Pizza (topping, size) {
   this.topping = topping;
   this.size = size;
-  this.price = "";
+  this.price = 0;
 }
 
 Pizza.prototype.findCost = function() { // call it some
   if (this.size === "small") {
-    this.price += `Your Total cost: $2`;
+    this.price += 2;
   } else if (this.size === "medium") {
-    this.price += `Your Total cost: $4`;
-  } else if (this.size === "large" ) {
-  this.price += `Your Total cost: $6`;
-  } 
+    this.price += 4;
+  } else {
+  this.price += 6;
+  }
+  if (this.toppings === "cheese") {
+    this.price += 1;
+  } else if (this.toopings === "Artichoke") {
+    this.price += 2;
+  } else {
+    this.price += 3;
+  }
   return this.price;
 }
 
-function showPizza(pizzaId, order) {
-  const pizza = pizza.findPizza(pizzaId);
-  $("#show-pizza").show();
-  $(".toppings").html(pizza.topping);s
-  $(".size").html(pizza.size);
-  $(".price").html(pizza.price);// Price
-}
+//For futute functionality 
+// function showPizza(pizzaId, order) {
+//   const pizza = order.findPizza(pizzaId);
+//   $("#show-pizza").show();
+//   $(".toppings").html(pizza.topping);
+//   $(".size").html(pizza.size);
+//   $(".price").html(pizza.price);// Price
+// }
+//For futute functionality 
+// function attachPizzaListener(order) {
+//   $("ul#pizza").on("click", "li", function() {
+//   showPizza(this.id, order);
+//   });
 
-function attachPizzaListener(order) {
-  $("ul#pizza").on("click", "li", function() {
-  showPizza(this.id, order);
-  });
-
-
-$("#buttons").on("click", ".deleteButton", function() {
-  orderPizza.deletePizza(this.id);
-  $("#show-pizza").hide();
-  displayPizzaDetails(orderPizza);
-});
-};
+//For futute functionality 
+// $("#buttons").on("click", ".deleteButton", function() {
+//   orderPizza.deletePizza(this.id);
+//   $("#show-pizza").hide();
+//   displayPizzaDetails(orderPizza);
+// });
+// };
 
 function displayPizzaDetails(orderPizzaToDisplay) {
   let orderList = $("ul#pizza");
@@ -68,13 +76,13 @@ function displayPizzaDetails(orderPizzaToDisplay) {
   htmlForPizzaInfo += "<li id=" + pizza.id + ">" + "Your topping: " + pizza.topping + 
   "<br>" +" The size: " + 
    pizza.size + " " 
-  + "<br>" + pizza.price + "</li>";
-  });
+  + "<br>" + "The cost of your pizza is: $ " +pizza.price + "</li>";
+  })
   orderList.html(htmlForPizzaInfo);
 };
 
-let orderPizza = new OrderPizza();
 $(document).ready(function() {
+  let orderPizza = new OrderPizza();
   $("form#new-pizza").submit(function(event) {
     event.preventDefault();
     const coco = $("#new-topping").val();//New
@@ -82,11 +90,11 @@ $(document).ready(function() {
     $("input#new-topping").val("");
     $("input#new-size").val("");
     
-    let cost = 0;
-    let newPizza = new Pizza(coco, toto, cost);//New
+    //let cost = 0;//For futute functionality 
+    let newPizza = new Pizza(coco, toto);//New
     orderPizza.addPizza(newPizza);
     let newPrice = newPizza.findCost();
-    attachPizzaListener(orderPizza);
+    //attachPizzaListener(orderPizza);
     displayPizzaDetails(orderPizza);
   })
 })

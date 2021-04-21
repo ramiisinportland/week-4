@@ -1,3 +1,4 @@
+```
 Discribe: OrderPizza
 Test: "It should return toppings of choice" 
 Code: userInput(toppings) 
@@ -12,11 +13,28 @@ Code: const pizza= new Pizza(top, size) Setting up the pizza object
       order.pizzas <--- Calling on the location of our added pizza
 Expected Output: pizza
 
-Discribe : findCost
-Test: "It should add the to the pizza opject" 
-Code: Pizza.prototype.findCost = function()
-Expected Output: price
 
+Discribe : assignID
+Test: "It should take the currentId and add 1 to it" 
+Code: OrderPizza.prototype.assignId()
+Expected Output: currentId + 1
+
+Discribe : findPizza 
+Test: "It check the array for pizzas and if there is pizza opject in the array of pizzas and return a pizza based in the id " 
+Code: OrderPizza.prototype.findPizza(2)
+Expected Output: pizza of id 2  
+
+Discribe : Pizza()
+Test: "It should make object of Pizza" 
+Code: Pizza (topping, size)
+Expected Output: (cheese, large)
+
+Discribe : Pizza.prototype.findCost
+Test: "It should add calculate the price based on the selected topping and size" 
+Code: Pizza.prototype.findCost
+Expected Output: this.price
+
+```
 
 
 
